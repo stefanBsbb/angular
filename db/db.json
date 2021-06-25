@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "name": "Fruit",
+      "created": "2021-06-18T20:23:54.748Z",
+      "lastUpdated": "2021-06-18T20:23:54.748Z",
+      "id": 1
+    },
+    {
+      "name": "Vegetable",
+      "created": "2021-06-18T20:43:56.036Z",
+      "lastUpdated": "2021-06-18T20:43:56.036Z",
+      "id": 2
+    },
+    {
+      "name": "Meat",
+      "created": "2021-06-18T20:44:00.678Z",
+      "lastUpdated": "2021-06-18T20:44:00.678Z",
+      "id": 3
+    },
+    {
+      "name": "Rasrasr",
+      "created": "2021-06-19T07:22:13.624Z",
+      "lastUpdated": "2021-06-19T07:22:13.624Z",
+      "id": 4
+    }
+  ],
+  "food": [
+    {
+      "name": "Bananaaaaaaaa",
+      "description": "color: yellow",
+      "categoryId": "1",
+      "type": "Carbohydrate",
+      "price": 5,
+      "discount": 25,
+      "posterImgUrl": "https://target.scene7.com/is/image/Target/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1?wid=325&hei=325&qlt=80&fmt=webp",
+      "isCertificateIncluded": true,
+      "expiredDate": "2021-06-02T21:00:00.000Z",
+      "created": "2021-06-18T20:35:09.621Z",
+      "lastUpdated": "2021-06-19T07:25:00.840Z",
+      "id": 1
+    },
+    {
+      "name": "Pork chop",
+      "description": null,
+      "categoryId": "3",
+      "type": "Protein",
+      "price": 15,
+      "discount": 66,
+      "posterImgUrl": "https://chubbytshaka.com/wp-content/uploads/2020/08/pork-chop.jpg",
+      "isCertificateIncluded": true,
+      "expiredDate": "2021-06-17T20:54:08.000Z",
+      "created": "2021-06-18T20:55:23.963Z",
+      "lastUpdated": "2021-06-18T20:55:23.963Z",
+      "id": 2
+    }
+  ]
+}

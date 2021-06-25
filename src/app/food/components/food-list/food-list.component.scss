@@ -1,0 +1,22 @@
+.course-summary {
+  display: flex;
+
+  .course-image-container {
+    width: 80px;
+    height: 45px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .course-titles-container {
+    margin-left: 12px;
+
+    .course-title {
+      display: block;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-between mt-2">
+  <h3>Courses</h3>
+  <div>
+    <a routerLink="../create" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+<div class="mb-4 mt-4">
+  <div class="form-inline">
+    <div class="btn-group" btnRadioGroup [(ngModel)]="listType">
+      <label class="btn btn-success" btnRadio="table">Table</label>
+      <label class="btn btn-success" btnRadio="json">JSON</label>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="listType === 'table'">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Expired at</th>
+        <th>Created</th>
+        <th>Last Updated</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Certified</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let food of food">
+        <td>{{food.id}}</td>
+        <td>
+          <div class="food-summary">
+            <div class="food-image-container">
+              <img [src]="food.posterImgUrl" width="100" height="70">
+            </div>
+          </div>
+
+        </td>
+        <td>{{food.name}}</td>
+        <td>{{food.expiredDate | date}}</td>
+        <td>{{food.created | date}}</td>
+        <td>{{food.lastUpdated | date}}</td>
+        <td>{{food.category.name}}</td>
+        <td>{{food.type}}</td>
+        <td>{{food.price}}</td>
+        <td>{{food.discount}}%</td>
+        <td>
+          <span *ngIf="food.isCertificateIncluded; else certificateNotIncluded">Yes</span>
+          <ng-template #certificateNotIncluded>
+            <span>-</span>
+          </ng-template>
+        </td>
+        <td>
+          <a class="btn btn-sm btn-outline-primary"
+             [routerLink]="['/', 'food', 'edit', food.id]">Edit</a>
+          <button (click)="openDeleteDialog(deleteDialogTemplate, food)"
+                  class="btn btn-sm btn-outline-danger ml-2">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="listType === 'json'">
+  <pre>{{food | json}}</pre>
+</div>
+
+<ng-template #deleteDialogTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Delete Food?</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete food "{{selectedFood.name}}"?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="deleteFood()">Delete</button>
+  </div>
+</ng-template>

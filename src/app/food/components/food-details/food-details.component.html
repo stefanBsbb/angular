@@ -1,0 +1,35 @@
+<div *ngIf="food">
+  <div class="food-title">
+    <h1>{{food.title}}</h1>
+    <h2>{{food.subtitle}}</h2>
+  </div>
+
+  <div class="food-details">
+    <ul>
+      <li><span class="font-weight-bold">Category: </span>{{food.category.name}}</li>
+      <li><span class="font-weight-bold">Type: </span>{{food.type}}</li>
+      <li>
+        <span class="font-weight-bold">Current Price: </span>${{getCurrentPrice() | number:'1.2-2'}}
+        (-{{food.discount}}% discount)
+      </li>
+      <li><span>Regular price: </span>${{food.price}}</li>
+      <li><span class="font-weight-bold">Include certificate: </span>{{food.isCertificateIncluded ? 'Yes' : '-'}}</li>
+    </ul>
+  </div>
+
+  <div class="food-image">
+    <img [src]="food.posterImgUrl" [alt]="food.title">
+  </div>
+
+  <div class="food-information">
+    <ul>
+      <li><span class="font-weight-bold">Expired At: </span>{{food.expiredDate | date}}</li>
+      <li><span class="font-weight-bold">Created: </span>{{food.created | date}}</li>
+      <li><span class="font-weight-bold">Last updated: </span>{{food.lastUpdated | date}}</li>
+    </ul>
+  </div>
+
+  <div class="food-description">
+    <p>{{food.description}}</p>
+  </div>
+</div>

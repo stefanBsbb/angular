@@ -1,0 +1,104 @@
+<form *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()">
+
+
+
+  <div class="form-group">
+    <label for="name">Name <span class="text-danger">*</span></label>
+    <input formControlName="name"
+           type="text"
+           class="form-control"
+           id="name"
+           placeholder="Enter name">
+    <lq-error-label [control]="formGroup.get('name')"></lq-error-label>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea formControlName="description"
+              class="form-control"
+              id="description"
+              placeholder="Enter description..."
+              rows="5"></textarea>
+    <lq-error-label [control]="formGroup.get('description')"></lq-error-label>
+    <div>{{formGroup.get('description').value?.length || 0}}/1000</div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category <span class="text-danger">*</span></label>
+    <select formControlName="categoryId" class="form-control" id="category">
+      <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+    </select>
+    <lq-error-label [control]="formGroup.get('categoryId')" [color] =""></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type <span class="text-danger">*</span></label>
+    <select formControlName="type" class="form-control" id="type">
+      <option>Carbohydrate</option>
+      <option>Fat</option>
+      <option>Protein</option>
+      <option>Other</option>
+    </select>
+    <lq-error-label [control]="formGroup.get('type')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price <span class="text-danger">*</span></label>
+    <input formControlName="price"
+           type="number"
+           class="form-control"
+           id="price"
+           placeholder="Enter price">
+    <lq-error-label [control]="formGroup.get('price')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="discount">Discount (%)</label>
+    <input formControlName="discount"
+           type="number"
+           class="form-control"
+           id="discount"
+           placeholder="Enter discount">
+    <lq-error-label [control]="formGroup.get('discount')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="poster">Poster URL</label>
+    <input formControlName="posterImgUrl"
+           type="text"
+           class="form-control"
+           id="poster"
+           placeholder="Enter poster URL">
+    <lq-error-label [control]="formGroup.get('posterImgUrl')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="expired-at">Expired at <span class="text-danger">*</span></label>
+    <input formControlName="expiredDate"
+           type="text"
+           bsDatepicker
+           [bsConfig]="{ dateInputFormat: 'MMMM Do YYYY', isAnimated: true }"
+           class="form-control"
+           id="expired-at"
+           placeholder="Enter expire date">
+    <lq-error-label [control]="formGroup.get('expiredDate')"></lq-error-label>
+  </div>
+
+  <div class="form-check mb-2">
+    <input formControlName="isCertificateIncluded"
+           type="checkbox"
+           class="form-check-input"
+           id="certificate">
+    <label class="form-check-label" for="certificate">
+      Include certificate
+    </label>
+    <lq-error-label [control]="formGroup.get('isCertificateIncluded')"></lq-error-label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
